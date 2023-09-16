@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 import { useParams } from "react-router-dom";
-import trailer from "../../public/images/trailer.png";
 export default function MovieDetails() {
   const { id } = useParams();
   const [detail, setDetails] = useState({});
@@ -17,7 +16,7 @@ export default function MovieDetails() {
   }, []);
   return (
     <div className="w-11/12 mx-auto my-11">
-      <div className=" h-[440px] overflow-hidden mb-3">
+      <div className=" h-[440px] overflow-hidden mb-3 rounded-lg">
         <img
           src={`https://image.tmdb.org/t/p/w500${detail.poster_path}`}
           alt=""
