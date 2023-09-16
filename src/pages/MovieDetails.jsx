@@ -10,7 +10,6 @@ export default function MovieDetails() {
       `https://api.themoviedb.org/3/movie/${id}?&append_to_response=videos,credit&api_key=3ce2b5fcb3edb153888e064f88e7eb16`
     );
     const data = await resp.json();
-    console.log(data);
     setDetails(data);
   }
   useEffect(() => {
@@ -18,9 +17,14 @@ export default function MovieDetails() {
   }, []);
   return (
     <div className="w-11/12 mx-auto my-11">
-      <div className=" mb-3">
-        <img src={trailer} alt="" className=" w-full" />
+      <div className=" h-[440px] overflow-hidden mb-3">
+        <img
+          src={`https://image.tmdb.org/t/p/w500${detail.poster_path}`}
+          alt=""
+          className=" w-full"
+        />
       </div>
+
       <div>
         <div className=" flex items-center space-x-2 text-lg mb-2 font-semibold">
           <p>{detail.title} </p> <p>• {detail.release_date}</p>
