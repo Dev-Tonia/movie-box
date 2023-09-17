@@ -79,7 +79,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-nav {
+.navbar {
   display: flex;
   flex-direction: column;
   gap: 4.8rem;
