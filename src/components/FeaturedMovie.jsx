@@ -8,7 +8,7 @@ const FeaturedMovie = () => {
   const getMovies = async () => {
     setIsLoading(true);
     const resp = await fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=3ce2b5fcb3edb153888e064f88e7eb16"
+      "https://api.themoviedb.org/3/movie/top_rated?api_key=3ce2b5fcb3edb153888e064f88e7eb16"
     );
     setIsLoading(false);
     const data = await resp.json();
@@ -21,7 +21,7 @@ const FeaturedMovie = () => {
   return (
     <div className="w-11/12 mx-auto">
       <div className="flex justify-between items-center my-7">
-        <h2 className=" text-3xl font-bold md:text-4xl">Featured Movie</h2>
+        <h2 className=" text-3xl font-bold md:text-4xl">Top Rated Movies</h2>
         <p className=" underline text-rose">see more</p>
       </div>
 
