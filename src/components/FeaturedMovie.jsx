@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
+import SwiperCard from "./swiper/SwiperCard";
 const FeaturedMovie = () => {
   const [movieList, setMovieList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
