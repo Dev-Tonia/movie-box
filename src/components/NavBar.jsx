@@ -7,11 +7,11 @@ const NavBar = () => {
     <>
       <nav className="py-4 font-DM-Sans absolute top-0 left-0 right-0">
         <div className="w-11/12 mx-auto">
-          <div className="flex justify-between items-center ">
+          <div className=" flex justify-between items-center ">
             <div className="logo">
               <img src={Logo} alt="" className="" />
             </div>
-            <div className=" border flex justify-between items-center w-96 py-1.5 px-2.5 rounded-md border-gray-300">
+            <div className=" hidden border md:flex justify-between items-center w-96 py-1.5 px-2.5 rounded-md border-gray-300">
               <input
                 type="text"
                 placeholder="What do you want to watch?"
@@ -27,6 +27,14 @@ const NavBar = () => {
                 <HiMenuAlt4 className=" text-white text-xl" />
               </div>
             </div>
+          </div>
+          <div className=" md:hidden border flex justify-between items-center w-full mt-2 py-1.5 px-2.5 rounded-md border-gray-300">
+            <input
+              type="text"
+              placeholder="What do you want to watch?"
+              className="w-full bg-transparent border-none outline-none placeholder:text-gray-200 text-gray-200"
+            />
+            <RiSearchLine className=" cursor-pointer text-white" />
           </div>
         </div>
       </nav>

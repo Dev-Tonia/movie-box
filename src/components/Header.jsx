@@ -17,7 +17,7 @@ const Hero = () => {
         <div className="w-11/12 mx-auto">
           <div className="flex items-center h-screen">
             <div className=" text-white w-[404px]">
-              <h1 className="text-5xl font-bold leading-[56px]">
+              <h1 className="text-3xl  md:text-4xl lg:text-5xl font-bold leading-[56px]">
                 John Wick 3 : Parabellum
               </h1>
               <div className="rating flex items-center space-x-9 mt-4">
