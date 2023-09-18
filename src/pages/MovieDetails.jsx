@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { RiStarFill } from "react-icons/ri";
 
 import Tickets from "../../public/images/Tickets.png";
 import List from "../../public/images/List.png";
@@ -54,138 +55,114 @@ function MovieDetails() {
   const stars = credits.cast.slice(0, 5); // Get the top 5 cast members
 
   return (
-    <section className="section-movie-nav">
-      <MenuBar />
-      <article>
-        <div className="section-movie-details">
-          <div className="movie-thumbnail">
-            {trailerThumbnail && (
-              <img
-                className="trailer-thumbnail"
-                src={trailerThumbnail}
-                alt="Trailer Thumbnail"
-              />
-            )}
-            <div className="play-trailer-btn">
-              <button>
-                <img className="watch-icon" src={Watch} alt="Watch Icon" />
-              </button>
-              <p>Watch Trailer</p>
-            </div>
-          </div>
-          <p className="movie-details-title" data-testid="movie-title">
-            {movieDetails.title}
-          </p>
-          <p className="movie-details-rating">
-            <div data-testid="runtime">{movieDetails.runtime} </div>mins
-          </p>
-          <div className="movie-desctiption" data-testid="movie-overview">
-            <p>{movieDetails.overview}</p>
-          </div>
-          <div className="movie-details-cta-cnt ">
-            <button className="btn btn-movie-details btn-dark">
-              <span>
-                <img
-                  className="ticket-icon"
-                  src={Tickets}
-                  alt="Two Tickets Icon"
-                />
-              </span>
-              See Showtimes
-            </button>
-
-            <button className="btn btn-movie-details btn-light">
-              <span>
-                <img className="list-icon" src={List} alt="List Icon" />
-              </span>
-              More watch options
-            </button>
-          </div>
-
-          <div className="movie-director">
-            Director: <span>{director ? director.name : "Not available"}</span>
-          </div>
-          <div className="sugessted-movies">
+    <section className=" mx-10 mt-3 md:mt-0 md:mx-0 md:flex">
+      <MenuBar className=" " />
+      <div className="wrapper md:mx-10 mt-2 md:mt-7 mb-2">
+        <div className=" h-[440px] overflow-hidden mb-3 rounded-3xl relative">
+          {trailerThumbnail && (
             <img
-              className="suggested-movies-img"
-              src={SuggestedMovies}
-              alt="Suggested Movies "
+              className="trailer-thumbnail"
+              src={trailerThumbnail}
+              alt="Trailer Thumbnail"
             />
-          </div>
-          <div className="movie-writer">
-            Writer: <span>{writer ? writer.name : "Not available"}</span>
-          </div>
-          <div className="movie-stars">
-            Stars: <span>{stars.map((star) => star.name).join(", ")}</span>
-          </div>
-          <div className="movie-top-position ">
-            <button className="btn btn-movie-details btn-dark ">
-              Top rated movies #65
+          )}
+          <div className=" absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center flex-col gap-2">
+            <button className="bg-[#e8e8e834] flex items-center justify-center border-none cursor-pointer h-20 w-20 rounded-full">
+              <img className=" w-11 " src={Watch} alt="Watch Icon" />
             </button>
-            <button className="btn btn-widest">
-              Awards 9 nominations
-              <span>
-                <img
-                  className="expant-arrow-icon"
-                  src={ExpandArrow}
-                  alt="Expand Arrow "
-                />
-              </span>
-            </button>
+            <p className=" text-[#e8e8e8] bg-zinc-600 bg-opacity-80">
+              Watch Trailer
+            </p>
           </div>
         </div>
-      </article>
+        <article className="  md:flex gap-4 ">
+          <div className="md:w-2/3  right-section">
+            <div className="flex justify-between">
+              <div className=" flex-col min-[950px]:flex-row flex  space-x-2 mb-2 text-base font-medium text-gray-600">
+                <p className="font-bold text-lg " data-testid=" movie-title">
+                  {movieDetails.title}
+                </p>
+
+                <div className=" flex">
+                  <p data-testid=" movie-release-date">
+                    • {movieDetails.release_date}
+                  </p>
+                  <p> • PG-13</p>
+                  <p data-testid=" movie-runtime">• {movieDetails.runtime}m</p>
+                </div>
+              </div>
+              <div className="  md:hidden text-gray-950 flex   ">
+                <RiStarFill className=" text-yellow-200" />
+                <span>8.5|860k</span>
+              </div>
+            </div>
+            <div className="movie-desctiption" data-testid="movie-overview">
+              <p>{movieDetails.overview}</p>
+            </div>
+
+            <div className="movie-director">
+              Director:{" "}
+              <span>{director ? director.name : "Not available"}</span>
+            </div>
+
+            <div className="movie-writer">
+              Writer: <span>{writer ? writer.name : "Not available"}</span>
+            </div>
+            <div className="movie-stars">
+              Stars: <span>{stars.map((star) => star.name).join(", ")}</span>
+            </div>
+            <div className="movie-top-position ">
+              <button className="btn btn-movie-details btn-dark ">
+                Top rated movies #65
+              </button>
+              <button className="btn btn-widest">
+                Awards 9 nominations
+                <span>
+                  <img
+                    className="expant-arrow-icon"
+                    src={ExpandArrow}
+                    alt="Expand Arrow "
+                  />
+                </span>
+              </button>
+            </div>
+          </div>
+          <div className=" left-selection mt-4 md:mt-0 md:w-1/3">
+            <div className=" hidden md:flex text-gray-950">
+              <RiStarFill className=" text-yellow-200" />
+              <span>8.5|860k</span>
+            </div>
+            <div className="movie-details-cta-cnt ">
+              <button className="btn btn-movie-details btn-dark">
+                <span>
+                  <img
+                    className="ticket-icon"
+                    src={Tickets}
+                    alt="Two Tickets Icon"
+                  />
+                </span>
+                See Showtimes
+              </button>
+
+              <button className="btn btn-movie-details btn-light">
+                <span>
+                  <img className="list-icon" src={List} alt="List Icon" />
+                </span>
+                More watch options
+              </button>
+            </div>
+            <div className="sugessted-movies">
+              <img
+                className="suggested-movies-img"
+                src={SuggestedMovies}
+                alt="Suggested Movies "
+              />
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
   );
 }
 
 export default MovieDetails;
-
-// import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// // import RiStarFill from "react-icons/ri";
-// {
-//   /* <i class="ri-star-fill"></i> */
-// }
-// export default function MovieDetails() {
-//   const { id } = useParams();
-//   const [detail, setDetails] = useState({});
-//   async function fetchDetails() {
-//     const resp = await fetch(
-//       `https://api.themoviedb.org/3/movie/${id}?api_key=3ce2b5fcb3edb153888e064f88e7eb16&append_to_response=videos,credits`
-//     );
-//     const data = await resp.json();
-//     setDetails(data);
-//   }
-//   useEffect(() => {
-//     fetchDetails();
-//   }, []);
-//   return (
-//     <div className="w-11/12 mx-auto my-11">
-//       <div className=" h-[440px] overflow-hidden mb-3 rounded-lg">
-//         <img
-//           src={`https://image.tmdb.org/t/p/w500${detail.poster_path}`}
-//           alt=""
-//           className=" w-full"
-//         />
-//       </div>
-//       <div className=" flex ">
-//         <div>
-//           <div className=" flex items-center space-x-2 text-lg mb-2 font-semibold">
-//             <p data-testid=" movie-title">{detail.title} </p>{" "}
-//             <p data-testid=" movie-release-date">• {detail.release_date}</p>
-//             <p> • PG-13</p>{" "}
-//             <p data-testid=" movie-runtime">• {detail.runtime}m</p>
-//           </div>
-//           <p data-testid=" movie-overview">{detail.overview}</p>
-//         </div>
-//         <div className="">
-//           <div className=" text-gray-950">
-//             <RiStarFill className=" text-yellow-200" />
-//             <span>8.5|860k</span>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }

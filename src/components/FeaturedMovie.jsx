@@ -12,7 +12,7 @@ const FeaturedMovie = () => {
     );
     setIsLoading(false);
     const data = await resp.json();
-    setMovieList(data.results);
+    setMovieList(data.results.slice(0, 10));
   };
 
   useEffect(() => {
